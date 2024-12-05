@@ -1,0 +1,367 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a:link,
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "Indie Flower", cursive;
+  src: url("../fonts/super_plants.ttf");
+}
+.button {
+  border: 0.0625rem solid black;
+  border-radius: 0.35rem;
+  box-shadow: 1px 1px 4px -3px gray;
+  cursor: pointer;
+}
+.button--sm {
+  width: 6rem;
+  padding: 0.125rem;
+  font-size: 0.8rem;
+}
+.button--md {
+  width: 9rem;
+  padding: 0.25rem;
+  font-size: 0.9rem;
+}
+.button--lg {
+  width: 12rem;
+  padding: 0.375rem;
+  font-size: 1rem;
+}
+.button--add {
+  background-image: linear-gradient(127deg, rgb(255, 255, 255), rgb(255, 255, 255), rgb(255, 255, 255) 65%);
+  border-color: #ff66b2;
+  color: #ff66b2;
+  transition: all 300ms;
+}
+.button--add:hover, .button--add:active {
+  background-image: linear-gradient(127deg, #df3389, #ff66b2, #df3389 65%);
+  border-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
+.button--remove {
+  background-image: linear-gradient(127deg, white, white, white 65%);
+  border-color: red;
+  color: red;
+  transition: all 300ms;
+}
+.button--remove:hover, .button--remove:active {
+  background-image: linear-gradient(127deg, darkred, red, darkred 65%);
+  border-color: white;
+  color: white;
+}
+.button--disabled {
+  background-image: linear-gradient(127deg, white, white, white 65%);
+  border-color: gray;
+  color: gray;
+  transition: all 300ms;
+  cursor: default;
+}
+.button--disabled:hover, .button--disabled:active {
+  background-image: linear-gradient(127deg, gray, lightgray, gray 65%);
+  border-color: white;
+  color: white;
+}
+
+.card {
+  border: 1px solid #00838f;
+  border-radius: 20px;
+  background-color: #df3389;
+  padding: 1vw;
+  display: grid;
+  grid-template-areas: "i d d d" "i d d d" "t d d d" "a a a a";
+  justify-items: center;
+}
+@media screen and (max-width: 768px) {
+  .card {
+    grid-template-areas: "i" "t" "d" "d" "a";
+  }
+}
+.card__image {
+  grid-area: i;
+  width: 55%;
+  border-radius: 20px;
+}
+.card__title {
+  grid-area: t;
+  color: #f5c159;
+  text-shadow: 2px 2px 4px #66D9D2;
+  text-align: center;
+}
+.card__text {
+  grid-area: d;
+}
+.card__price {
+  font-weight: bold;
+}
+.card__price::before {
+  content: "$ ";
+}
+.card div:last-child {
+  grid-area: a;
+  display: flex;
+  justify-content: space-around;
+  gap: 2vw;
+  align-items: center;
+}
+
+.slider {
+  position: relative;
+  height: 25vh;
+  width: 300%;
+  display: flex;
+  animation-name: move-slide;
+  animation-duration: 18s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.slider__one, .slider__two, .slider__three {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider__title {
+  position: absolute;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: "Indie Flower";
+}
+.slider__image {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+@keyframes move-slide {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  25% {
+    left: -100%;
+  }
+  45% {
+    left: -100%;
+  }
+  50% {
+    left: -200%;
+  }
+  70% {
+    left: -200%;
+  }
+  75% {
+    left: -100%;
+  }
+  95% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+body {
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  gap: 1vw;
+  padding: 0.5vw;
+  width: calc(100% - 1vw);
+  background-color: linear-gradient(#f71e8a, #ff66b2);
+  animation: cambioDeColor 5s infinite alternate;
+  font-family: "Indie Flower", cursive;
+}
+
+@keyframes cambioDeColor {
+  0% {
+    background-color: rgb(252, 160, 204);
+  }
+  100% {
+    background-color: #ff66b2;
+  }
+}
+.footer {
+  grid-area: footer;
+  text-align: center;
+}
+.footer_text {
+  color: transparent;
+}
+.footer_text::after {
+  content: "© 2023 - Gerardo Amachel & Co.";
+  color: #41464b;
+}
+
+.header {
+  grid-area: header;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header__logo {
+  width: 20%;
+  display: inline-block;
+}
+.header__title {
+  display: inline-block;
+  text-align: center;
+  font-family: "Indie Flower", cursive;
+  color: #f5c159;
+  text-align: center;
+}
+.header .navbar {
+  width: 100%;
+}
+.header .navbar__menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #fdfbfb;
+  font-weight: bold;
+  padding: 1vw;
+}
+.header .navbar__item {
+  cursor: pointer;
+  color: #f5c159;
+  font-family: "Indie Flower", cursive;
+}
+.header .navbar__item:hover {
+  color: #fdfbfb;
+  text-shadow: 2px 2px 4px #66D9D2;
+}
+.header .navbar__item--active {
+  color: #66D9D2;
+  text-shadow: 2px 2px 4px #f5c159;
+}
+
+.main {
+  grid-area: main;
+}
+.main .section {
+  width: 100%;
+}
+.main .section--slider {
+  overflow: hidden;
+}
+.main .section--products {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+}
+.main .section--products .grid {
+  display: grid;
+  gap: 1vw;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+@media screen and (max-width: 768px) {
+  .main .section--products .grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+  }
+}
+.main .section--products--actions {
+  display: grid;
+  height: 4vh;
+  gap: 1vw;
+  margin: 1vh 0;
+  grid-template-areas: "b b b a";
+}
+.main .section--products--actions > * {
+  border-radius: 0.5vw;
+  border: 1px solid #00838f;
+  padding: 0.5vw;
+  background-color: #df3389;
+}
+.main .section--products--actions .buscar {
+  grid-area: b;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1vw;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  color: #f5c159;
+  font-weight: bold;
+  font-size: 1.2vw;
+  text-align: left;
+}
+.main .section--products--actions .buscar:focus {
+  outline: none;
+}
+.main .section--products--actions .agregar {
+  grid-area: a;
+  cursor: pointer;
+  background-color: #df3389;
+  color: #f5c159;
+  text-align: center;
+  font-weight: bold;
+}
+
+.about .main {
+  text-align: justify;
+  padding: 2vw;
+}
+
+.contact .main form {
+  display: flex;
+  gap: 2vh;
+  flex-direction: column;
+  align-items: center;
+  font-size: 3.5vh;
+}
+.contact .main form input, .contact .main form textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 1px #00838f;
+  font-size: 3.5vh;
+}
+.contact .main form input[type=submit] {
+  background-color: #df3389;
+  color: #f5c159;
+  border-radius: 1.5vw;
+  border: 1px solid #00838f;
+  padding: 1vw;
+  font-size: 3.5vh;
+  cursor: pointer;
+}
+
+.product .main form {
+  display: flex;
+  gap: 2vh;
+  flex-direction: column;
+  align-items: center;
+  font-size: 3.5vh;
+}
+.product .main form input, .product .main form textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 1px #00838f;
+  font-size: 3.5vh;
+}
+.product .main form input[type=submit] {
+  background-color: #df3389;
+  color: #f5c159;
+  border-radius: 1.5vw;
+  border: 1px solid #00838f;
+  padding: 1vw;
+  font-size: 3.5vh;
+  cursor: pointer;
+}/*# sourceMappingURL=main.css.map */
