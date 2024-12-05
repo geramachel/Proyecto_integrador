@@ -1,0 +1,55 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+
+.card {
+    border: 1px solid var.$borderColorPrimary;
+    border-radius: 20px;
+    background-color: var.$backgroundColorDark;
+    padding: 1vw;
+    display: grid;
+    grid-template-areas:
+        "i d d d"
+        "i d d d"
+        "t d d d"
+        "a a a a";
+    justify-items: center;
+    @media screen and (max-width: 768px) {
+        grid-template-areas:
+            "i"
+            "t"
+            "d"
+            "d"
+            "a";
+    }
+    &__image {
+        grid-area: i;
+        width: 55%;
+        border-radius: 20px;
+    }
+    
+    &__title {
+        grid-area: t;
+        color: var.$textColorPrimary;
+        text-shadow: 2px 2px 4px var.$textColorSecondary;
+        text-align: center;
+    }
+    &__text {
+        grid-area: d;
+    }
+    
+    &__price {
+        font-weight: bold;
+    
+        &::before {
+            content: "$ ";
+        }
+    }
+    div:last-child {
+        grid-area: a;
+        display: flex;
+        justify-content: space-around;
+        gap: 2vw;
+        align-items: center;
+    }
+}

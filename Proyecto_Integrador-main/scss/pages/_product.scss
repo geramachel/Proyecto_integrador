@@ -1,0 +1,29 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.product{
+    .main{
+        form {
+            display: flex;
+            gap: 2vh;
+            flex-direction: column;
+            align-items: center;
+            font-size: var.$formFontSize;
+            input, textarea{
+                background-color: transparent;
+                border: none;
+                border-bottom: solid 1px var.$borderColorPrimary;
+                font-size: var.$formFontSize;
+            }
+            input[type="submit"]{
+                background-color: var.$backgroundColorDark;
+                color: var.$textColorPrimary;
+                border-radius: 1.5vw;
+                border: 1px solid var.$borderColorPrimary;
+                padding: 1vw;
+                font-size: var.$formFontSize;
+                cursor: pointer;
+            }
+        }
+    }
+}
