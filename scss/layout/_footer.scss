@@ -1,0 +1,14 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+
+.footer {
+    grid-area: footer;
+    text-align: center;
+    &_text {
+        color:transparent;
+        &::after {
+            content: "© 2023 - Marisa Ebhardt & Co.";
+            color: var.$textColorDisabled;
+        }
+    }
+}
